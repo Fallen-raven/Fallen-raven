@@ -1,5 +1,5 @@
 // Typing Animation
-function typeWriter(element, text, speed = 70) {
+function typeWriter(element, text, speed = 80) {
   let i = 0;
   element.innerHTML = '';
   function type() {
@@ -14,53 +14,50 @@ function typeWriter(element, text, speed = 70) {
 
 // Data
 const skills = [
-  "HTML5 • CSS3", "JavaScript ES6+", "React & Next.js", "Tailwind CSS",
-  "Node.js • Express", "PHP • Laravel", "MySQL & MongoDB", "Payment Gateways",
-  "REST APIs", "Git & GitHub", "UI/UX Design", "Performance Optimization"
+  "HTML5 • CSS3", "JavaScript (ES6+)", "React & Next.js", "Tailwind CSS",
+  "Node.js & Express", "PHP & Laravel", "MySQL & MongoDB", "Payment Gateways",
+  "RESTful APIs", "Git & GitHub", "UI/UX Design", "Performance Optimization"
 ];
 
 const projects = [
   {
     title: "Modern Company Dashboard",
-    desc: "Powerful admin panel with real-time analytics, user management and dark mode.",
+    desc: "Responsive website with powerful admin panel, real-time analytics, and user management system.",
     icon: "🌐"
   },
   {
     title: "Corporate Business Website",
-    desc: "Elegant multi-page website with booking system and content management.",
-    icon: "🏛️"
+    desc: "Elegant multi-page website with booking system, blog, and lead generation features.",
+    icon: "🏢"
   },
   {
-    title: "Premium E-commerce Store",
-    desc: "Full-featured online fashion store with secure payment integration.",
+    title: "Premium Fashion E-commerce",
+    desc: "Full-featured online store with cart system, secure payments, and order tracking.",
     icon: "🛍️"
   },
   {
     title: "Multi-Vendor Marketplace",
-    desc: "Advanced platform supporting multiple sellers with complete dashboard.",
+    desc: "Advanced e-commerce platform supporting multiple sellers with complete admin dashboard.",
     icon: "🏪"
   }
 ];
 
-// Render Skills
+// Render Functions
 function renderSkills() {
-  const container = document.getElementById('skills-grid');
-  container.innerHTML = skills.map(skill => `
+  document.getElementById('skills-grid').innerHTML = skills.map(skill => `
     <div class="bg-zinc-900 light:bg-[#f4ede4] p-8 rounded-3xl card-hover text-center font-medium border border-purple-800/30">
       ${skill}
     </div>
   `).join('');
 }
 
-// Render Projects
 function renderProjects() {
-  const container = document.getElementById('projects-grid');
-  container.innerHTML = projects.map(p => `
+  document.getElementById('projects-grid').innerHTML = projects.map(p => `
     <div class="bg-zinc-900 light:bg-[#f4ede4] rounded-3xl overflow-hidden card-hover border border-purple-800/30">
       <div class="h-64 bg-gradient-to-br from-purple-700 to-violet-800 flex items-center justify-center text-8xl">${p.icon}</div>
       <div class="p-8">
         <h3 class="text-2xl font-bold mb-3">${p.title}</h3>
-        <p class="text-zinc-400 light:text-[#5c4635]">${p.desc}</p>
+        <p class="text-zinc-400 light:text-[#4a4035]">${p.desc}</p>
       </div>
     </div>
   `).join('');
@@ -70,11 +67,8 @@ function renderProjects() {
 function toggleTheme() {
   document.documentElement.classList.toggle('light');
   const icon = document.getElementById('theme-icon');
-  if (icon.classList.contains('fa-moon')) {
-    icon.classList.replace('fa-moon', 'fa-sun');
-  } else {
-    icon.classList.replace('fa-sun', 'fa-moon');
-  }
+  icon.classList.toggle('fa-moon');
+  icon.classList.toggle('fa-sun');
 }
 
 // Language Toggle
@@ -87,30 +81,28 @@ function toggleLanguage() {
     btn.textContent = "عربي / EN";
     document.documentElement.setAttribute('dir', 'rtl');
     
-    document.getElementById('typing-hero').style.direction = 'rtl';
     document.getElementById('hero-subtitle').textContent = "مطور Full Stack • اليمن";
-    document.getElementById('about-title').textContent = "قصة الريفن";
+    document.getElementById('about-title').textContent = "من أنا";
     document.getElementById('about-text').innerHTML = `
-      <p>أنا ريفن، مطور Full-Stack شغوف من اليمن. أحول الأفكار إلى تجارب رقمية قوية، أنيقة وقابلة للتوسع.</p>
-      <p>أتقن بناء المواقع والتطبيقات الحديثة باستخدام أفضل التقنيات لأساعد الشركات والأفراد على التميز في العالم الرقمي.</p>
+      <p>أنا ريفن، مطور Full-Stack شغوف من اليمن. أحول الأفكار إلى مواقع وتطبيقات ويب احترافية، سريعة وآمنة.</p>
+      <p>أساعد الشركات والأفراد على بناء حضور رقمي قوي ومميز باستخدام أحدث التقنيات.</p>
     `;
-    document.getElementById('skills-title').textContent = "القوى التي أمتلكها";
-    document.getElementById('projects-title').textContent = "إبداعاتي الأسطورية";
-    document.getElementById('contact-title').textContent = "هل نصنع أسطورة معاً؟";
+    document.getElementById('skills-title').textContent = "المهارات والتقنيات";
+    document.getElementById('projects-title').textContent = "مشاريع مختارة";
+    document.getElementById('contact-title').textContent = "هل نبدأ مشروعك؟";
   } else {
     btn.textContent = "EN / عربي";
     document.documentElement.setAttribute('dir', 'ltr');
     
-    document.getElementById('typing-hero').style.direction = 'ltr';
     document.getElementById('hero-subtitle').textContent = "Full Stack Developer • Yemen";
-    document.getElementById('about-title').textContent = "The Raven's Tale";
+    document.getElementById('about-title').textContent = "About Me";
     document.getElementById('about-text').innerHTML = `
-      <p>I am Fallen Raven (ريفن), a passionate Full-Stack Developer from Yemen. I transform ideas into powerful, elegant, and scalable digital experiences.</p>
-      <p>I specialize in building modern websites and applications using the best technologies to help businesses and individuals stand out in the digital world.</p>
+      <p>I am Fallen Raven (ريفن), a passionate Full-Stack Developer from Yemen. I transform ideas into professional, fast, and secure websites and web applications.</p>
+      <p>I help businesses and individuals build a strong digital presence using modern technologies.</p>
     `;
-    document.getElementById('skills-title').textContent = "Powers I Command";
-    document.getElementById('projects-title').textContent = "Legendary Creations";
-    document.getElementById('contact-title').textContent = "Shall We Forge Legend Together?";
+    document.getElementById('skills-title').textContent = "Skills & Technologies";
+    document.getElementById('projects-title').textContent = "Featured Projects";
+    document.getElementById('contact-title').textContent = "Let's Build Something Great";
   }
 }
 
@@ -120,8 +112,8 @@ window.onload = () => {
   renderProjects();
   document.getElementById('theme-icon').classList.add('fa-moon');
   
-  // Start Typing Animation
+  // Typing Animation
   setTimeout(() => {
-    typeWriter(document.getElementById('typing-hero'), "I am Fallen Raven");
-  }, 600);
+    typeWriter(document.getElementById('typing-hero'), "Fallen Raven");
+  }, 500);
 };
