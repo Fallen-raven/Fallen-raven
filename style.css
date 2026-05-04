@@ -4,34 +4,33 @@ body {
   font-family: 'Inter', system_ui, sans-serif;
 }
 
-h1, h2, h3 {
+h1, h2, h3, .raven-glow {
   font-family: 'Playfair Display', sans-serif;
 }
 
 .raven-glow {
-  text-shadow: 0 0 25px rgb(168 85 247);
+  text-shadow: 0 0 30px rgb(168 85 247);
 }
 
 .card-hover {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-hover:hover {
-  transform: translateY(-12px) scale(1.03);
-  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+  transform: translateY(-15px);
+  box-shadow: 0 30px 60px -15px rgb(139 92 246);
 }
 
-/* Light Mode */
+/* Light Mode Improvements */
 .light {
   background-color: #f8fafc;
-  color: #0f172a;
+  color: #1e2937;
 }
 
-.light .bg-zinc-900, .light .bg-zinc-950 {
+.light .bg-zinc-950, .light .bg-black, .light .bg-zinc-900 {
   background-color: #f1f5f9;
-  color: #0f172a;
 }
 
 .light .text-zinc-300 {
-  color: #334155;
+  color: #475569;
 }
