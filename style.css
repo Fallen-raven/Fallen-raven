@@ -1,49 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
 
-body {
-  font-family: 'Inter', system_ui, sans-serif;
-}
+body { font-family: 'Inter', sans-serif; }
+h1, h2, h3, .raven-glow { font-family: 'Playfair Display', sans-serif; }
 
-h1, h2, h3, .raven-glow {
-  font-family: 'Playfair Display', sans-serif;
-}
+.raven-glow { text-shadow: 0 0 35px rgb(168 85 247); }
 
-.raven-glow {
-  text-shadow: 0 0 30px rgb(168 85 247);
+.raven-image {
+  transition: all 0.6s ease;
+  filter: brightness(1.1) contrast(1.1);
 }
+.raven-image:hover { transform: scale(1.08) rotate(5deg); }
 
 .card-hover {
-  transition: all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .card-hover:hover {
-  transform: translateY(-20px) scale(1.03);
-  box-shadow: 0 30px 70px -15px rgb(139 92 246);
+  transform: translateY(-25px) scale(1.04);
+  box-shadow: 0 40px 80px -20px rgb(139 92 246);
 }
 
-.animate-fade-in {
-  animation: fadeIn 1.5s ease forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Beautiful Light Mode */
+/* Light Mode - Warm & Elegant */
 .light {
-  background-color: #f8f4eb;
-  color: #2c1e1e;
+  background-color: #f9f5eb;
+  color: #2c2118;
 }
-
 .light .bg-zinc-950, .light .bg-black, .light .bg-zinc-900 {
   background-color: #f4ede4;
 }
-
-.light .text-zinc-300 {
-  color: #4a3f35;
-}
-
-.light .border-purple-900 {
-  border-color: #c4a484;
-}
+.light .text-zinc-300 { color: #4a4035; }
