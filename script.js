@@ -1,63 +1,36 @@
-// Tailwind Script
-function initTailwind() {
-  const script = document.createElement('script');
-  script.src = "https://cdn.tailwindcss.com";
-  document.head.appendChild(script);
-}
-
-// Skills Data
+// Skills
 const skills = [
-  "HTML5 & CSS3", "JavaScript (ES6+)", "React.js", "Next.js", 
-  "Tailwind CSS", "Node.js & Express", "PHP & Laravel", 
-  "MySQL & MongoDB", "REST APIs", "Git & GitHub", 
-  "Payment Integration", "UI/UX Design", "Performance Optimization"
+  "HTML5 / CSS3", "JavaScript (ES6+)", "React.js", "Next.js",
+  "Tailwind CSS", "Node.js", "Express.js", "Laravel",
+  "PHP", "MySQL", "MongoDB", "Git & GitHub"
 ];
 
-// Projects Data
+// Projects
 const projects = [
-  {
-    title: "Modern Company Dashboard",
-    desc: "Complete responsive company website with powerful admin panel, real-time analytics, user management and dark mode.",
-    icon: "🌐"
-  },
-  {
-    title: "Corporate Business Website",
-    desc: "Elegant multi-page corporate website with booking system, blog, and lead generation features.",
-    icon: "🏢"
-  },
-  {
-    title: "Premium Fashion E-commerce",
-    desc: "Full-featured online store with cart, secure payment gateway, order tracking and wishlist.",
-    icon: "🛍️"
-  },
-  {
-    title: "Multi-Vendor Marketplace",
-    desc: "Advanced e-commerce platform supporting multiple sellers, admin dashboard and secure transactions.",
-    icon: "🏪"
-  }
+  { title: "Modern Company Dashboard", desc: "Responsive website with advanced admin panel and analytics.", color: "from-blue-500 to-cyan-500" },
+  { title: "Corporate Business Website", desc: "Elegant multi-page site with booking and blog system.", color: "from-amber-500 to-orange-500" },
+  { title: "Premium E-commerce Store", desc: "Full online shop with payment integration and cart.", color: "from-pink-500 to-rose-500" },
+  { title: "Multi-Vendor Marketplace", desc: "Advanced platform with seller dashboard and payments.", color: "from-emerald-500 to-teal-500" }
 ];
 
-// Render Skills
+// Render Skills & Projects
 function renderSkills() {
-  const container = document.getElementById('skills-grid');
-  container.innerHTML = skills.map(skill => `
-    <div class="bg-zinc-900 light:bg-slate-200 p-6 rounded-2xl card-hover text-center font-medium">
+  document.getElementById("skills-grid").innerHTML = skills.map(skill => `
+    <div class="bg-white dark:bg-zinc-800 p-6 rounded-3xl card text-center font-medium border border-zinc-200 dark:border-zinc-700">
       ${skill}
     </div>
   `).join('');
 }
 
-// Render Projects
 function renderProjects() {
-  const container = document.getElementById('projects-grid');
-  container.innerHTML = projects.map(project => `
-    <div class="bg-zinc-900 light:bg-slate-100 rounded-3xl overflow-hidden card-hover">
-      <div class="h-64 bg-gradient-to-br from-purple-600 to-violet-600 flex items-center justify-center text-7xl">
-        ${project.icon}
+  document.getElementById("projects-grid").innerHTML = projects.map(p => `
+    <div class="bg-white dark:bg-zinc-800 rounded-3xl overflow-hidden card border border-zinc-200 dark:border-zinc-700">
+      <div class="h-64 bg-gradient-to-br ${p.color} flex items-center justify-center text-7xl text-white">
+        🚀
       </div>
       <div class="p-8">
-        <h3 class="text-2xl font-bold mb-3">${project.title}</h3>
-        <p class="text-zinc-400 light:text-slate-600 leading-relaxed">${project.desc}</p>
+        <h3 class="text-2xl font-bold mb-3">${p.title}</h3>
+        <p class="text-zinc-600 dark:text-zinc-400">${p.desc}</p>
       </div>
     </div>
   `).join('');
@@ -65,9 +38,9 @@ function renderProjects() {
 
 // Theme Toggle
 function toggleTheme() {
-  document.documentElement.classList.toggle('light');
+  document.documentElement.classList.toggle('dark');
   const icon = document.getElementById('theme-icon');
-  if (document.documentElement.classList.contains('light')) {
+  if (document.documentElement.classList.contains('dark')) {
     icon.classList.replace('fa-moon', 'fa-sun');
   } else {
     icon.classList.replace('fa-sun', 'fa-moon');
@@ -76,137 +49,34 @@ function toggleTheme() {
 
 // Language Toggle
 let isArabic = false;
-
-function toggleLanguage() {
-  isArabic = !isArabic;
-  const langBtn = document.getElementById('lang-btn');
-  const aboutText = document.getElementById('about-text');
-
-  if (isArabic) {
-    langBtn.textContent = "عربي / EN";
-    document.documentElement.setAttribute('dir', 'rtl');
-    aboutText.innerHTML = `
-      <p>أنا ريفن، مطور Full-Stack شغوف مقيم في اليمن. لدي أكثر من 4 سنوات خبرة في بناء مواقع وتطبيقات ويب سريعة، آمنة وجذابة بصرياً.</p>
-      <p>أحب تحويل المشاكل المعقدة إلى حلول بسيطة وجميلة. سواء كنت بحاجة إلى موقع احترافيconst skills = [
-  "HTML5 • CSS3", "JavaScript ES6+", "React & Next.js", "Tailwind CSS",
-  "Node.js • Express", "PHP • Laravel", "MySQL • MongoDB",
-  "Payment Gateways", "RESTful APIs", "Git & GitHub", "UI/UX Design",
-  "Performance Tuning"
-];
-
-const projects = [
-  {
-    title: "Modern Company Dashboard",
-    desc: "Professional company website with advanced admin panel, analytics, and user management system.",
-    icon: "🌐"
-  },
-  {
-    title: "Corporate Business Site",
-    desc: "Elegant multi-page website with booking system, blog, and lead generation features.",
-    icon: "🏢"
-  },
-  {
-    title: "Premium Fashion Store",
-    desc: "Full e-commerce platform with cart, secure payments, order tracking and wishlist.",
-    icon: "🛍️"
-  },
-  {
-    title: "Multi-Vendor Marketplace",
-    desc: "Advanced online shop supporting multiple sellers with complete admin dashboard.",
-    icon: "🏪"
-  }
-];
-
-// Render Functions
-function renderSkills() {
-  const container = document.getElementById('skills-grid');
-  container.innerHTML = skills.map(skill => `
-    <div class="bg-zinc-900 light:bg-slate-200 p-8 rounded-3xl card-hover text-center font-medium border border-purple-900/30">
-      ${skill}
-    </div>
-  `).join('');
-}
-
-function renderProjects() {
-  const container = document.getElementById('projects-grid');
-  container.innerHTML = projects.map(p => `
-    <div class="bg-zinc-900 light:bg-slate-100 rounded-3xl overflow-hidden card-hover border border-purple-900/30">
-      <div class="h-72 bg-gradient-to-br from-purple-700 to-violet-700 flex items-center justify-center text-8xl">
-        ${p.icon}
-      </div>
-      <div class="p-8">
-        <h3 class="text-2xl font-bold mb-3">${p.title}</h3>
-        <p class="text-zinc-400 light:text-slate-600">${p.desc}</p>
-      </div>
-    </div>
-  `).join('');
-}
-
-// Theme
-function toggleTheme() {
-  document.documentElement.classList.toggle('light');
-  const icon = document.getElementById('theme-icon');
-  icon.classList.toggle('fa-moon');
-  icon.classList.toggle('fa-sun');
-}
-
-// Language
-let isArabic = false;
 function toggleLanguage() {
   isArabic = !isArabic;
   const btn = document.getElementById('lang-btn');
 
   if (isArabic) {
     btn.textContent = "عربي / EN";
-    document.documentElement.setAttribute('dir', 'rtl');
-    
-    document.getElementById('hero-subtitle').textContent = "مطور Full Stack من اليمن";
+    document.getElementById('hero-title').textContent = "مطور Full Stack";
+    document.getElementById('hero-desc').textContent = "أبني تطبيقات ويب سريعة وجميلة وقابلة للتوسع تساعد الأعمال على النمو.";
     document.getElementById('about-title').textContent = "من أنا";
-    document.getElementById('about-text').innerHTML = `
-      <p>أنا فالن رافن، مطور Full-Stack شغوف مقيم في اليمن، لدي أكثر من 4 سنوات خبرة في صناعة تجارب رقمية استثنائية.</p>
-      <p>أتخصص في بناء مواقع وتطبيقات ويب سريعة، آمنة وجذابة بصرياً. هدفي دائماً تحويل رؤيتك إلى منتج قوي وأنيق وقابل للتوسع.</p>
-    `;
+    document.getElementById('about-text').innerHTML = `<p>أنا ريفن، مطور Full-Stack من اليمن بخبرة تزيد عن 4 سنوات في بناء مواقع وتطبيقات ويب حديثة.</p><p>أساعد العملاء على تحويل أفكارهم إلى منتجات رقمية احترافية وعالية الأداء.</p>`;
     document.getElementById('skills-title').textContent = "المهارات والتقنيات";
     document.getElementById('projects-title').textContent = "مشاريع مختارة";
-    document.getElementById('contact-title').textContent = "هل أنت جاهز لنصنع شيئاً أسطورياً؟";
+    document.getElementById('contact-title').textContent = "هيا نعمل معاً";
   } else {
     btn.textContent = "EN / عربي";
-    document.documentElement.setAttribute('dir', 'ltr');
-    
-    document.getElementById('hero-subtitle').textContent = "Full Stack Developer from Yemen";
+    document.getElementById('hero-title').textContent = "Full Stack Developer";
+    document.getElementById('hero-desc').textContent = "I build fast, beautiful, and scalable web applications that help businesses grow.";
     document.getElementById('about-title').textContent = "About Me";
-    document.getElementById('about-text').innerHTML = `
-      <p>I am Fallen Raven, a passionate Full-Stack Developer based in Yemen with more than 4 years of experience crafting exceptional digital experiences.</p>
-      <p>I specialize in building fast, secure, and visually stunning websites and web applications. My goal is always the same: transform your vision into a powerful, elegant, and scalable product.</p>
-    `;
+    document.getElementById('about-text').innerHTML = `<p>I am a passionate Full-Stack Developer from Yemen with 4+ years of experience building modern websites and web applications.</p><p>I help clients turn their ideas into professional, high-performance digital products.</p>`;
     document.getElementById('skills-title').textContent = "Skills & Technologies";
     document.getElementById('projects-title').textContent = "Featured Projects";
-    document.getElementById('contact-title').textContent = "Let's Create Something Legendary";
+    document.getElementById('contact-title').textContent = "Let's Work Together";
   }
 }
 
-// Init
+// Initialize
 window.onload = () => {
   renderSkills();
   renderProjects();
-  document.getElementById('theme-icon').classList.add('fa-moon');
-};، متجر إلكتروني قوي، أو تطبيق ويب مخصص — أقدم جودة تفوق التوقعات.</p>
-    `;
-  } else {
-    langBtn.textContent = "EN / عربي";
-    document.documentElement.setAttribute('dir', 'ltr');
-    aboutText.innerHTML = `
-      <p>I am Fallen Raven, a passionate Full-Stack Developer based in Yemen. With more than 4 years of experience, I specialize in building fast, secure, and visually stunning websites and web applications.</p>
-      <p>I love turning complex problems into simple, beautiful solutions. Whether it's a professional business website, a powerful e-commerce platform, or a custom web application — I deliver quality that exceeds expectations.</p>
-    `;
-  }
-}
-
-// Initialize everything
-window.onload = function() {
-  renderSkills();
-  renderProjects();
-  
-  // Default theme icon
   document.getElementById('theme-icon').classList.add('fa-moon');
 };
