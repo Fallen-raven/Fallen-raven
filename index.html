@@ -8,15 +8,17 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#0a0a0a] text-white overflow-x-hidden">
+<body class="bg-black text-white overflow-x-hidden">
 
   <!-- Navbar -->
-  <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-xl z-50 border-b border-purple-900">
+  <nav class="fixed top-0 w-full bg-black/95 backdrop-blur-xl z-50 border-b border-purple-800">
     <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
-      <h1 class="text-3xl font-bold tracking-tighter raven-glow">FALLEN RAVEN</h1>
+      <h1 class="text-3xl font-bold raven-glow flex items-center gap-3">
+        <span class="text-4xl">🪶</span> FALLEN RAVEN
+      </h1>
       <div class="flex items-center gap-8">
-        <button onclick="toggleLanguage()" id="lang-btn" class="font-medium hover:text-purple-400 transition">EN / عربي</button>
-        <button onclick="toggleTheme()" class="p-3 rounded-2xl hover:bg-zinc-800 transition">
+        <button onclick="toggleLanguage()" id="lang-btn" class="font-medium hover:text-purple-400">EN / عربي</button>
+        <button onclick="toggleTheme()" class="p-3 rounded-2xl hover:bg-zinc-900">
           <i class="fa-solid fa-moon text-2xl" id="theme-icon"></i>
         </button>
       </div>
@@ -24,70 +26,60 @@
   </nav>
 
   <!-- Hero -->
-  <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
-    <div id="hero-bg" class="absolute inset-0 bg-cover bg-center transition-all duration-1000"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black"></div>
+  <section class="min-h-screen flex items-center justify-center relative">
+    <div id="particle-bg" class="absolute inset-0"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/70 to-black"></div>
     
     <div class="max-w-5xl mx-auto text-center px-6 relative z-10 pt-20">
-      <img id="raven-pic" src="https://images.unsplash.com/photo-1617791160588-241658c0f566?q=80&w=400" 
-           alt="Fallen Raven" 
-           class="w-40 h-40 mx-auto mb-8 rounded-full border-4 border-purple-500 shadow-2xl object-cover">
+      <img src="https://images.unsplash.com/photo-1617791160588-241658c0f566?q=80&w=600" 
+           alt="Fallen Raven" class="w-44 h-44 mx-auto mb-8 rounded-full border-4 border-purple-600 shadow-2xl raven-image">
       
-      <h2 class="text-6xl md:text-7xl font-bold leading-tight mb-6 animate-fade-in">I weave code into legend</h2>
-      <p class="text-2xl text-purple-300 mb-10" id="hero-subtitle">Full Stack Developer • Yemen</p>
+      <h1 id="typing" class="text-6xl md:text-7xl font-bold leading-tight mb-6 min-h-[160px]"></h1>
+      <p class="text-xl text-purple-400 mb-12" id="hero-subtitle">Full Stack Developer • Yemen</p>
       
-      <div class="flex justify-center gap-5 flex-wrap">
-        <a href="#projects" class="px-10 py-4 bg-gradient-to-r from-purple-600 to-violet-600 rounded-2xl font-semibold text-lg hover:scale-110 transition">Explore My Work</a>
-        <a href="#contact" class="px-10 py-4 border-2 border-purple-400 rounded-2xl font-semibold text-lg hover:bg-purple-500/10 transition">Start a Project</a>
+      <div class="flex justify-center gap-6">
+        <a href="#projects" class="px-10 py-5 bg-gradient-to-r from-purple-600 to-violet-700 rounded-2xl font-semibold text-lg hover:scale-110 transition">Witness My Work</a>
+        <a href="#contact" class="px-10 py-5 border-2 border-purple-400 rounded-2xl font-semibold text-lg hover:bg-purple-500/10 transition">Begin The Journey</a>
       </div>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-      <i class="fa-solid fa-chevron-down text-3xl"></i>
     </div>
   </section>
 
   <!-- About -->
-  <section class="py-24 bg-zinc-950" id="about">
+  <section class="py-28 bg-zinc-950 relative" id="about">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-5xl font-bold mb-12 text-center raven-glow" id="about-title">About Me</h2>
-      <div class="prose prose-lg text-zinc-300 max-w-none leading-relaxed" id="about-text">
-        <p>I am Fallen Raven — a passionate Full-Stack Developer from Yemen. I craft powerful, beautiful, and scalable digital experiences that help businesses thrive online.</p>
-        <p>With more than 4 years turning ideas into reality, I specialize in modern web technologies and delivering projects that exceed expectations.</p>
-      </div>
+      <h2 class="text-5xl font-bold text-center mb-16 raven-glow" id="about-title">The Raven's Story</h2>
+      <div id="about-text" class="text-lg leading-relaxed text-zinc-300 space-y-6"></div>
     </div>
   </section>
 
   <!-- Skills -->
-  <section class="py-24 bg-black" id="skills">
+  <section class="py-28 bg-black" id="skills">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-5xl font-bold text-center mb-16 raven-glow" id="skills-title">Skills & Technologies</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6" id="skills-grid"></div>
+      <h2 class="text-5xl font-bold text-center mb-20 raven-glow" id="skills-title">Powers I Wield</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8" id="skills-grid"></div>
     </div>
   </section>
 
   <!-- Projects -->
-  <section class="py-24 bg-zinc-950" id="projects">
+  <section class="py-28 bg-zinc-950" id="projects">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-5xl font-bold text-center mb-16 raven-glow" id="projects-title">Featured Projects</h2>
-      <div class="grid md:grid-cols-2 gap-10" id="projects-grid"></div>
+      <h2 class="text-5xl font-bold text-center mb-20 raven-glow" id="projects-title">Creations</h2>
+      <div class="grid md:grid-cols-2 gap-12" id="projects-grid"></div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section class="py-24 bg-black" id="contact">
+  <section class="py-28 bg-black" id="contact">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-5xl font-bold mb-8 raven-glow" id="contact-title">Let's Create Something Legendary</h2>
-      <a href="https://wa.me/967735524426" target="_blank" class="inline-flex items-center gap-4 bg-green-600 hover:bg-green-700 px-12 py-6 rounded-3xl text-2xl font-semibold transition-all hover:scale-110">
-        <i class="fa-brands fa-whatsapp text-4xl"></i>
-        Message me on WhatsApp
+      <h2 class="text-5xl font-bold mb-10 raven-glow" id="contact-title">Shall We Create Legend Together?</h2>
+      <a href="https://wa.me/967735524426" target="_blank" class="inline-flex items-center gap-4 bg-green-600 hover:bg-green-700 px-14 py-7 rounded-3xl text-2xl font-semibold transition hover:scale-110">
+        <i class="fa-brands fa-whatsapp text-4xl"></i> Speak With Me
       </a>
     </div>
   </section>
 
-  <!-- Floating WhatsApp -->
-  <a href="https://wa.me/967735524426" target="_blank" class="fixed bottom-8 right-8 bg-green-600 w-16 h-16 rounded-full flex items-center justify-center text-4xl shadow-2xl hover:scale-125 transition z-50">
+  <!-- Floating Button -->
+  <a href="https://wa.me/967735524426" target="_blank" class="fixed bottom-10 right-10 bg-green-600 w-16 h-16 rounded-full flex items-center justify-center text-4xl shadow-2xl hover:scale-125 transition z-50">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
