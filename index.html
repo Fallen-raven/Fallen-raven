@@ -12,43 +12,48 @@
     body { font-family: 'Inter', sans-serif; }
     .heading { font-family: 'Playfair Display', sans-serif; }
     
-    .raven-theme { background-color: #0a0a0a; color: white; }
-    .golden-theme { background-color: #f8f4eb; color: #2c2118; }
+    .raven-theme { 
+      background-color: #0a0a0a; 
+      color: white; 
+    }
+    .golden-theme { 
+      background-color: #f8f4eb; 
+      color: #2c2118; 
+    }
+
+    .golden-theme .card {
+      background-color: #f0e6d2;
+      border-color: #d4c4a8;
+    }
     
     .hero-bg {
-      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), 
-                  url('https://images.unsplash.com/photo-1617791160588-241658c0f566?q=80&w=2000') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
+                  url('https://images.unsplash.com/photo-1617791160588-241658c0f566?q=80&w=1200') center/cover no-repeat;
     }
     
-    .card-hover {
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .card-hover:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 25px 50px -12px rgb(147 51 234 / 0.25);
+    .golden-theme .hero-bg {
+      background: linear-gradient(rgba(248,244,235,0.85), rgba(248,244,235,0.9)), 
+                  url('https://images.unsplash.com/photo-1617791160588-241658c0f566?q=80&w=1200') center/cover no-repeat;
     }
   </style>
 </head>
-<body class="raven-theme transition-all duration-500">
+<body class="raven-theme transition-all duration-700">
 
   <!-- Navbar -->
-  <nav class="fixed top-0 w-full bg-black/95 backdrop-blur-xl z-50 border-b border-purple-900/50">
-    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+  <nav class="fixed top-0 w-full bg-black/95 backdrop-blur-xl z-50 border-b border-purple-900">
+    <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
       <div class="flex items-center gap-4">
         <span class="text-4xl">🪶</span>
         <h1 class="text-3xl font-bold heading tracking-tighter">FALLEN RAVEN</h1>
       </div>
-      
-      <div class="flex items-center gap-6 text-sm">
+      <div class="flex items-center gap-6">
         <button onclick="toggleLanguage()" id="lang-btn" class="font-medium hover:text-purple-400 transition">EN / عربي</button>
-        <button onclick="toggleTheme()" id="theme-btn" class="px-5 py-2 rounded-2xl hover:bg-zinc-800 transition">🌙 Raven</button>
+        <button onclick="toggleTheme()" id="theme-btn" class="px-5 py-2.5 rounded-2xl hover:bg-zinc-800 transition">🌟 Golden</button>
         
-        <a href="https://github.com/yourusername" target="_blank" class="hover:text-purple-400 transition">
+        <a href="https://github.com" target="_blank" class="hover:text-purple-400 transition">
           <i class="fa-brands fa-github text-2xl"></i>
         </a>
-        
-        <a href="https://wa.me/967735524426" target="_blank" 
-           class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-2xl flex items-center gap-2 font-medium transition">
+        <a href="https://wa.me/967735524426" target="_blank" class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-2xl flex items-center gap-2 transition font-medium">
           <i class="fa-brands fa-whatsapp"></i> Chat
         </a>
       </div>
@@ -58,44 +63,34 @@
   <!-- Hero -->
   <section class="min-h-screen flex items-center justify-center relative hero-bg">
     <div class="max-w-5xl mx-auto text-center px-6 pt-20">
-      <div class="mb-10">
-        <img src="https://images.unsplash.com/photo-1617791160588-241658c0f566?q=80&w=800" 
-             class="w-64 h-64 mx-auto rounded-3xl border-8 border-purple-500 shadow-2xl object-cover" 
-             alt="Fallen Raven">
-      </div>
+      <img src="https://images.unsplash.com/photo-1617791160588-241658c0f566?q=80&w=1200" 
+           class="w-80 h-80 mx-auto rounded-3xl border-8 border-purple-500 shadow-2xl mb-10 object-cover" alt="Fallen Raven">
       
-      <h1 id="hero-title" class="text-6xl md:text-7xl heading font-bold mb-4 tracking-tighter">FALLEN RAVEN</h1>
+      <h1 id="hero-title" class="text-6xl md:text-7xl heading font-bold mb-4">FALLEN RAVEN</h1>
       <p id="hero-subtitle" class="text-3xl text-purple-400 mb-10">Full Stack Developer • Yemen</p>
       
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="#projects" class="px-10 py-5 bg-white text-black rounded-2xl font-semibold text-lg hover:scale-105 transition">
-          View Projects
-        </a>
-        <a href="#contact" class="px-10 py-5 border-2 border-purple-500 rounded-2xl font-semibold text-lg hover:bg-purple-500/10 transition">
-          Hire Me
-        </a>
+      <div class="flex justify-center gap-6 flex-wrap">
+        <a href="#projects" class="px-10 py-5 bg-white text-black rounded-2xl font-semibold text-lg hover:scale-105 transition">View Projects</a>
+        <a href="#contact" class="px-10 py-5 border-2 border-purple-500 rounded-2xl font-semibold text-lg hover:bg-purple-500/10 transition">Hire Me</a>
       </div>
     </div>
   </section>
 
   <!-- About -->
   <section class="py-28" id="about">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 id="about-title" class="text-5xl heading font-bold text-center mb-12">About Me</h2>
-      <div id="about-text" class="text-lg leading-relaxed text-zinc-300 max-w-3xl mx-auto text-center">
-        I'm ريفن (Fallen Raven), a passionate Full-Stack Developer from Yemen. 
-        I specialize in building modern, scalable, and high-performance web applications using the latest technologies.
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 id="about-title" class="text-5xl heading font-bold mb-10">About Me</h2>
+      <div id="about-text" class="text-lg leading-relaxed text-zinc-300 max-w-3xl mx-auto">
+        I'm ريفن (Fallen Raven), a passionate Full-Stack Developer from Yemen. I specialize in building modern, scalable, and beautiful web applications that solve real problems.
       </div>
     </div>
   </section>
 
   <!-- Skills -->
-  <section class="py-28 bg-zinc-900" id="skills">
+  <section class="py-28 bg-zinc-900 raven-section" id="skills">
     <div class="max-w-6xl mx-auto px-6">
       <h2 id="skills-title" class="text-5xl heading font-bold text-center mb-16">Skills & Technologies</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6" id="skills-grid">
-        <!-- Filled by JS -->
-      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6" id="skills-grid"></div>
     </div>
   </section>
 
@@ -103,9 +98,7 @@
   <section class="py-28" id="projects">
     <div class="max-w-6xl mx-auto px-6">
       <h2 id="projects-title" class="text-5xl heading font-bold text-center mb-16">Featured Projects</h2>
-      <div class="grid md:grid-cols-2 gap-10" id="projects-grid">
-        <!-- Filled by JS -->
-      </div>
+      <div class="grid md:grid-cols-2 gap-10" id="projects-grid"></div>
     </div>
   </section>
 
@@ -113,8 +106,6 @@
   <section class="py-32 bg-zinc-900" id="contact">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 id="contact-title" class="text-5xl heading font-bold mb-8">Ready to bring your idea to life?</h2>
-      <p class="text-zinc-400 mb-10 text-lg">Let's discuss your project</p>
-      
       <a href="https://wa.me/967735524426" target="_blank" 
          class="inline-flex items-center gap-4 bg-green-600 hover:bg-green-700 px-16 py-8 rounded-3xl text-2xl font-semibold transition hover:scale-110">
         <i class="fa-brands fa-whatsapp text-4xl"></i>
@@ -124,15 +115,8 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-12 border-t border-zinc-800 text-center text-zinc-500 text-sm">
-    <div class="max-w-7xl mx-auto px-6">
-      © 2026 Fallen Raven. Built with passion.
-      <div class="mt-4 flex justify-center gap-6">
-        <a href="#" class="hover:text-purple-400">GitHub</a>
-        <a href="#" class="hover:text-purple-400">LinkedIn</a>
-        <a href="#" class="hover:text-purple-400">Twitter</a>
-      </div>
-    </div>
+  <footer class="py-12 border-t border-zinc-800 text-center text-zinc-500">
+    <p>© 2026 Fallen Raven. Made with passion in Yemen.</p>
   </footer>
 
   <script>
@@ -140,36 +124,42 @@
     let isGolden = false;
 
     const skills = [
-      "HTML5 / CSS3 / Tailwind", "JavaScript (ES6+)", "TypeScript", 
-      "React.js & Next.js 15", "Node.js & Express", "PHP / Laravel",
-      "PostgreSQL & MongoDB", "REST & GraphQL APIs", "Docker & Linux",
-      "Git & GitHub", "Payment Integration", "UI/UX Design"
+      "HTML5 / CSS3", "JavaScript (ES6+)", "TypeScript", "React.js", "Next.js 15",
+      "Tailwind CSS", "Node.js & Express", "PHP & Laravel", "MySQL / PostgreSQL",
+      "MongoDB", "RESTful & GraphQL APIs", "Stripe & Payment Integration",
+      "Docker", "Git & GitHub", "UI/UX Design (Figma)"
     ];
 
     const projects = [
       {
-        title: "Modern Company Dashboard",
-        desc: "Real-time analytics dashboard with role-based access control and beautiful UI",
-        tech: "Next.js 15 • TypeScript • Supabase • Recharts",
-        icon: "📊"
+        title: "E-Commerce Platform",
+        desc: "Full-stack online store with payment gateway, order tracking, and admin dashboard. Built with Next.js 15 + Laravel backend.",
+        icon: "🛍️",
+        tech: "Next.js • Laravel • Stripe"
       },
       {
-        title: "E-commerce Platform",
-        desc: "Full-featured fashion store with cart, payment gateway and order management",
-        tech: "Next.js • Stripe • Prisma • PostgreSQL",
-        icon: "🛍️"
+        title: "Company Management System",
+        desc: "Advanced dashboard with real-time analytics, employee management, and invoice system.",
+        icon: "📊",
+        tech: "React • Node.js • MongoDB"
       },
       {
         title: "Multi-Vendor Marketplace",
-        desc: "Advanced platform with seller dashboards, admin panel and commission system",
-        tech: "Laravel • Vue.js • MySQL • Payment APIs",
-        icon: "🏪"
+        desc: "Platform where multiple sellers can list products with commission system.",
+        icon: "🏪",
+        tech: "Next.js • Express • PostgreSQL"
+      },
+      {
+        title: "Booking & Reservation System",
+        desc: "Hotel/Apartment booking website with calendar, payment and review system.",
+        icon: "🏨",
+        tech: "React • Laravel • MySQL"
       }
     ];
 
     function renderSkills() {
       document.getElementById('skills-grid').innerHTML = skills.map(skill => `
-        <div class="bg-zinc-800/70 p-6 rounded-3xl text-center hover:bg-zinc-700 border border-purple-900/30 card-hover">
+        <div class="card bg-zinc-800 p-8 rounded-3xl text-center hover:scale-105 transition-all border border-purple-900/30 hover:border-purple-500">
           ${skill}
         </div>
       `).join('');
@@ -177,10 +167,8 @@
 
     function renderProjects() {
       document.getElementById('projects-grid').innerHTML = projects.map(p => `
-        <div class="bg-zinc-800 rounded-3xl overflow-hidden card-hover border border-purple-900/30">
-          <div class="h-72 bg-gradient-to-br from-purple-700 via-violet-700 to-fuchsia-700 flex items-center justify-center text-8xl">
-            ${p.icon}
-          </div>
+        <div class="card bg-zinc-800 rounded-3xl overflow-hidden hover:scale-105 transition-all border border-purple-900/30">
+          <div class="h-72 bg-gradient-to-br from-purple-700 to-violet-700 flex items-center justify-center text-8xl">${p.icon}</div>
           <div class="p-8">
             <h3 class="text-2xl font-bold mb-3">${p.title}</h3>
             <p class="text-zinc-400 mb-4">${p.desc}</p>
@@ -199,7 +187,7 @@
         document.getElementById('hero-title').textContent = "ريفن";
         document.getElementById('hero-subtitle').textContent = "مطور Full Stack • اليمن";
         document.getElementById('about-title').textContent = "من أنا";
-        document.getElementById('about-text').innerHTML = "أنا ريفن، مطور Full-Stack شغوف من اليمن. أتخصص في بناء تطبيقات ويب حديثة وقابلة للتوسع باستخدام أحدث التقنيات.";
+        document.getElementById('about-text').innerHTML = "أنا ريفن، مطور Full-Stack شغوف من اليمن. أختص في بناء تطبيقات ويب حديثة وقابلة للتوسع وحل المشكلات الحقيقية.";
         document.getElementById('skills-title').textContent = "المهارات والتقنيات";
         document.getElementById('projects-title').textContent = "مشاريع مختارة";
         document.getElementById('contact-title').textContent = "هل أنت جاهز لبدء مشروعك؟";
@@ -208,7 +196,7 @@
         document.getElementById('hero-title').textContent = "FALLEN RAVEN";
         document.getElementById('hero-subtitle').textContent = "Full Stack Developer • Yemen";
         document.getElementById('about-title').textContent = "About Me";
-        document.getElementById('about-text').innerHTML = "I'm ريفن (Fallen Raven), a passionate Full-Stack Developer from Yemen. I specialize in building modern, scalable, and high-performance web applications.";
+        document.getElementById('about-text').innerHTML = "I'm ريفن (Fallen Raven), a passionate Full-Stack Developer from Yemen. I specialize in building modern, scalable, and beautiful web applications.";
         document.getElementById('skills-title').textContent = "Skills & Technologies";
         document.getElementById('projects-title').textContent = "Featured Projects";
         document.getElementById('contact-title').textContent = "Ready to bring your idea to life?";
@@ -217,21 +205,33 @@
 
     function toggleTheme() {
       isGolden = !isGolden;
+      const body = document.body;
+      
       if (isGolden) {
-        document.body.classList.remove('raven-theme');
-        document.body.classList.add('golden-theme');
-        document.getElementById('theme-btn').innerHTML = "🪶 Raven";
+        body.classList.remove('raven-theme');
+        body.classList.add('golden-theme');
+        document.getElementById('theme-btn').innerHTML = '🪶 Raven';
+        
+        // Fix text colors in golden mode
+        document.querySelectorAll('.text-zinc-300, .text-zinc-400').forEach(el => {
+          el.style.color = '#4a3f35';
+        });
       } else {
-        document.body.classList.add('raven-theme');
-        document.body.classList.remove('golden-theme');
-        document.getElementById('theme-btn').innerHTML = "🌟 Golden";
+        body.classList.add('raven-theme');
+        body.classList.remove('golden-theme');
+        document.getElementById('theme-btn').innerHTML = '🌟 Golden';
+        
+        document.querySelectorAll('.text-zinc-300, .text-zinc-400').forEach(el => {
+          el.style.color = '';
+        });
       }
     }
 
+    // Initialize
     window.onload = () => {
       renderSkills();
       renderProjects();
-      document.getElementById('theme-btn').innerHTML = "🌟 Golden";
+      document.getElementById('theme-btn').innerHTML = '🌟 Golden';
     };
   </script>
 </body>
