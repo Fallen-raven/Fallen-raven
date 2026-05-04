@@ -1,12 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
 
-body { font-family: 'Inter', sans-serif; }
-
-.card {
-  transition: all 0.4s ease;
+body {
+  font-family: 'Inter', system_ui, sans-serif;
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+h1, h2, h3, .raven-glow {
+  font-family: 'Playfair Display', sans-serif;
+}
+
+.raven-glow {
+  text-shadow: 0 0 30px rgb(168 85 247);
+}
+
+.card-hover {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 30px 60px -15px rgb(139 92 246);
+}
+
+/* Light Mode Improvements */
+.light {
+  background-color: #f8fafc;
+  color: #1e2937;
+}
+
+.light .bg-zinc-950, .light .bg-black, .light .bg-zinc-900 {
+  background-color: #f1f5f9;
+}
+
+.light .text-zinc-300 {
+  color: #475569;
 }
