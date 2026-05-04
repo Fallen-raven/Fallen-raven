@@ -1,53 +1,26 @@
-const skills = [
-  "HTML5 • CSS3", "JavaScript ES6+", "React & Next.js", "Tailwind CSS",
-  "Node.js • Express", "PHP • Laravel", "MySQL • MongoDB",
-  "Payment Gateways", "RESTful APIs", "Git & GitHub", "UI/UX Design",
-  "Performance Tuning"
-];
+const skills = ["HTML5 • CSS3", "JavaScript ES6+", "React & Next.js", "Tailwind CSS", "Node.js • Express", "PHP • Laravel", "MySQL • MongoDB", "Payment Gateways", "REST APIs", "Git & GitHub", "UI/UX Design", "Performance Optimization"];
 
 const projects = [
-  {
-    title: "Modern Company Dashboard",
-    desc: "Professional company website with advanced admin panel, analytics, and user management system.",
-    icon: "🌐"
-  },
-  {
-    title: "Corporate Business Site",
-    desc: "Elegant multi-page website with booking system, blog, and lead generation features.",
-    icon: "🏢"
-  },
-  {
-    title: "Premium Fashion Store",
-    desc: "Full e-commerce platform with cart, secure payments, order tracking and wishlist.",
-    icon: "🛍️"
-  },
-  {
-    title: "Multi-Vendor Marketplace",
-    desc: "Advanced online shop supporting multiple sellers with complete admin dashboard.",
-    icon: "🏪"
-  }
+  { title: "Modern Company Dashboard", desc: "Responsive website with advanced admin panel, real-time analytics and user management.", icon: "🌐" },
+  { title: "Corporate Business Website", desc: "Elegant multi-page site with booking system, blog and lead generation.", icon: "🏢" },
+  { title: "Premium Fashion E-commerce", desc: "Full online store with cart, secure payments, order tracking and wishlist.", icon: "🛍️" },
+  { title: "Multi-Vendor Marketplace", desc: "Advanced platform supporting multiple sellers with complete dashboard.", icon: "🏪" }
 ];
 
-// Render Functions
+// Render
 function renderSkills() {
-  const container = document.getElementById('skills-grid');
-  container.innerHTML = skills.map(skill => `
-    <div class="bg-zinc-900 light:bg-slate-200 p-8 rounded-3xl card-hover text-center font-medium border border-purple-900/30">
-      ${skill}
-    </div>
+  document.getElementById('skills-grid').innerHTML = skills.map(s => `
+    <div class="bg-zinc-900 light:bg-[#f4ede4] p-8 rounded-3xl card-hover text-center font-medium border border-purple-900/30">${s}</div>
   `).join('');
 }
 
 function renderProjects() {
-  const container = document.getElementById('projects-grid');
-  container.innerHTML = projects.map(p => `
-    <div class="bg-zinc-900 light:bg-slate-100 rounded-3xl overflow-hidden card-hover border border-purple-900/30">
-      <div class="h-72 bg-gradient-to-br from-purple-700 to-violet-700 flex items-center justify-center text-8xl">
-        ${p.icon}
-      </div>
+  document.getElementById('projects-grid').innerHTML = projects.map(p => `
+    <div class="bg-zinc-900 light:bg-[#f4ede4] rounded-3xl overflow-hidden card-hover border border-purple-900/30">
+      <div class="h-72 bg-gradient-to-br from-purple-700 via-violet-700 to-purple-800 flex items-center justify-center text-8xl">${p.icon}</div>
       <div class="p-8">
         <h3 class="text-2xl font-bold mb-3">${p.title}</h3>
-        <p class="text-zinc-400 light:text-slate-600">${p.desc}</p>
+        <p class="text-zinc-400 light:text-[#4a3f35]">${p.desc}</p>
       </div>
     </div>
   `).join('');
@@ -70,35 +43,31 @@ function toggleLanguage() {
   if (isArabic) {
     btn.textContent = "عربي / EN";
     document.documentElement.setAttribute('dir', 'rtl');
-    
     document.getElementById('hero-subtitle').textContent = "مطور Full Stack من اليمن";
     document.getElementById('about-title').textContent = "من أنا";
-    document.getElementById('about-text').innerHTML = `
-      <p>أنا ريفن، مطور Full-Stack شغوف مقيم في اليمن، لدي أكثر من 4 سنوات خبرة في صناعة تجارب رقمية استثنائية.</p>
-      <p>أتخصص في بناء مواقع وتطبيقات ويب سريعة، آمنة وجذابة بصرياً. هدفي دائماً تحويل رؤيتك إلى منتج قوي وأنيق وقابل للتوسع.</p>
-    `;
+    document.getElementById('about-text').innerHTML = `<p>أنا ريفن، مطور Full-Stack شغوف من اليمن. أصنع تجارب رقمية قوية وجميلة وقابلة للتوسع.</p>`;
     document.getElementById('skills-title').textContent = "المهارات والتقنيات";
     document.getElementById('projects-title').textContent = "مشاريع مختارة";
-    document.getElementById('contact-title').textContent = "هل أنت جاهز لنصنع شيئاً أسطورياً؟";
+    document.getElementById('contact-title').textContent = "هيا نصنع شيئاً أسطورياً";
   } else {
     btn.textContent = "EN / عربي";
     document.documentElement.setAttribute('dir', 'ltr');
-    
-    document.getElementById('hero-subtitle').textContent = "Full Stack Developer from Yemen";
+    document.getElementById('hero-subtitle').textContent = "Full Stack Developer • Yemen";
     document.getElementById('about-title').textContent = "About Me";
-    document.getElementById('about-text').innerHTML = `
-      <p>I am Fallen Raven, a passionate Full-Stack Developer based in Yemen with more than 4 years of experience crafting exceptional digital experiences.</p>
-      <p>I specialize in building fast, secure, and visually stunning websites and web applications. My goal is always the same: transform your vision into a powerful, elegant, and scalable product.</p>
-    `;
+    document.getElementById('about-text').innerHTML = `<p>I am Fallen Raven — a passionate Full-Stack Developer from Yemen. I craft powerful, beautiful, and scalable digital experiences.</p>`;
     document.getElementById('skills-title').textContent = "Skills & Technologies";
     document.getElementById('projects-title').textContent = "Featured Projects";
     document.getElementById('contact-title').textContent = "Let's Create Something Legendary";
   }
 }
 
-// Init
+// Init with subtle background movement
 window.onload = () => {
   renderSkills();
   renderProjects();
   document.getElementById('theme-icon').classList.add('fa-moon');
+
+  // Subtle hero background movement
+  const heroBg = document.getElementById('hero-bg');
+  heroBg.style.backgroundImage = "url('https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80&w=2070')";
 };
