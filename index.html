@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fallen Raven | Full Stack Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Segoe UI', system-ui, sans-serif; }
+    .raven-glow { text-shadow: 0 0 20px rgb(147 51 234); }
+  </style>
+</head>
+<body class="bg-zinc-950 text-white transition-all duration-300">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-zinc-950/80 backdrop-blur-md z-50 border-b border-purple-900">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <h1 class="text-2xl font-bold raven-glow">Fallen Raven</h1>
+      <div class="flex items-center gap-6">
+        <button onclick="toggleLanguage()" class="text-sm font-medium hover:text-purple-400 transition">EN / عربي</button>
+        <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-zinc-800 transition">
+          <i class="fa-solid fa-moon text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="min-h-screen flex items-center justify-center pt-20 bg-gradient-to-br from-zinc-950 via-purple-950 to-zinc-950">
+    <div class="max-w-5xl mx-auto text-center px-6">
+      <h2 class="text-6xl md:text-7xl font-bold mb-6 leading-tight">
+        Crafting Digital<br>Masterpieces
+      </h2>
+      <p class="text-2xl text-purple-300 mb-8">Full Stack Developer from Yemen</p>
+      <div class="flex justify-center gap-4">
+        <a href="#projects" class="px-8 py-4 bg-purple-600 hover:bg-purple-700 rounded-full font-semibold transition">View My Work</a>
+        <a href="#contact" class="px-8 py-4 border border-purple-500 hover:bg-purple-500/10 rounded-full font-semibold transition">Hire Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="py-20 bg-zinc-900" id="about">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-4xl font-bold mb-8 text-center">About Me</h2>
+      <p class="text-lg leading-relaxed text-zinc-300 text-center" id="about-text">
+        I am Fallen Raven, a passionate Full-Stack Developer from Yemen. I transform ideas into powerful, beautiful, and scalable web applications.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="py-20 bg-zinc-950">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Skills & Technologies</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-zinc-900 p-6 rounded-2xl hover:scale-105 transition">HTML5 / CSS3</div>
+        <div class="bg-zinc-900 p-6 rounded-2xl hover:scale-105 transition">JavaScript / React</div>
+        <div class="bg-zinc-900 p-6 rounded-2xl hover:scale-105 transition">Next.js & Tailwind</div>
+        <div class="bg-zinc-900 p-6 rounded-2xl hover:scale-105 transition">Node.js & Laravel</div>
+        <div class="bg-zinc-900 p-6 rounded-2xl hover:scale-105 transition">MySQL & MongoDB</div>
+        <div class="bg-zinc-900 p-6 rounded-2xl hover:scale-105 transition">Payment Integration</div>
+        <div class="bg-zinc-900 p-6 rounded-2xl hover:scale-105 transition">Git & Deployment</div>
+        <div class="bg-zinc-900 p-6 rounded-2xl hover:scale-105 transition">UI/UX Design</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="py-20 bg-zinc-900" id="projects">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Featured Projects</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-zinc-800 rounded-3xl overflow-hidden hover:scale-105 transition">
+          <div class="h-64 bg-gradient-to-br from-purple-600 to-violet-600 flex items-center justify-center">
+            <span class="text-6xl">🌐</span>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-semibold mb-2">Modern Company Dashboard</h3>
+            <p class="text-zinc-400">Responsive company website with advanced admin panel and analytics.</p>
+          </div>
+        </div>
+        <div class="bg-zinc-800 rounded-3xl overflow-hidden hover:scale-105 transition">
+          <div class="h-64 bg-gradient-to-br from-amber-600 to-orange-600 flex items-center justify-center">
+            <span class="text-6xl">🏢</span>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-semibold mb-2">Corporate Business Website</h3>
+            <p class="text-zinc-400">Elegant multi-page website with booking system.</p>
+          </div>
+        </div>
+        <div class="bg-zinc-800 rounded-3xl overflow-hidden hover:scale-105 transition">
+          <div class="h-64 bg-gradient-to-br from-pink-600 to-rose-600 flex items-center justify-center">
+            <span class="text-6xl">🛍️</span>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-semibold mb-2">Premium E-commerce Store</h3>
+            <p class="text-zinc-400">Full online fashion store with payment gateway.</p>
+          </div>
+        </div>
+        <div class="bg-zinc-800 rounded-3xl overflow-hidden hover:scale-105 transition">
+          <div class="h-64 bg-gradient-to-br from-cyan-600 to-blue-600 flex items-center justify-center">
+            <span class="text-6xl">🏪</span>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-semibold mb-2">Multi-Vendor Online Shop</h3>
+            <p class="text-zinc-400">Advanced platform with multiple sellers and secure payments.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="py-20 bg-zinc-950" id="contact">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-8">Let's Build Something Great</h2>
+      <a href="https://wa.me/967735524426" target="_blank" 
+         class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-10 py-5 rounded-2xl text-xl font-semibold transition">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+        Message me on WhatsApp
+      </a>
+      <p class="mt-6 text-zinc-400">+967 735 524 426</p>
+    </div>
+  </section>
+
+  <script>
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+    }
+
+    let isArabic = false;
+    function toggleLanguage() {
+      isArabic = !isArabic;
+      const aboutText = document.getElementById('about-text');
+      if (isArabic) {
+        aboutText.innerHTML = 'أنا فالن رافن، مطور Full-Stack شغوف من اليمن. أحول الأفكار إلى تطبيقات ويب قوية وجميلة وقابلة للتوسع.';
+        document.documentElement.setAttribute('dir', 'rtl');
+      } else {
+        aboutText.innerHTML = 'I am Fallen Raven, a passionate Full-Stack Developer from Yemen. I transform ideas into powerful, beautiful, and scalable web applications.';
+        document.documentElement.setAttribute('dir', 'ltr');
+      }
+    }
+  </script>
+</body>
+</html>
