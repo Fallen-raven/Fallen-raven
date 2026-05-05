@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Fallen Raven — Full Stack Developer</title>
-  <meta name="description" content="Fallen Raven — Full Stack Developer (React, Next.js, Node, Laravel). Case studies, architecture and portfolio." />
+  <meta name="description" content="Fallen Raven — Full Stack Developer from Yemen. React, Next.js, Node.js, Laravel specialist." />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
@@ -13,122 +13,115 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
   <style>
-    :root{
+    :root {
       --raven-bg: #07060a;
-      --raven-panel: #0f1116;
-      --raven-accent: #7c3aed;
       --gold-bg: #fbf4e8;
-      --gold-panel: #f5eddc;
       --gold-accent: #d69e2e;
     }
 
-    html { scroll-behavior: smooth; }
     body { font-family: 'Inter', system-ui, sans-serif; }
-
     .heading { font-family: 'Playfair Display', serif; letter-spacing: -0.04em; }
 
-    /* ==================== THEMES ==================== */
-    body.raven-theme { 
-      background: radial-gradient(1200px 500px at 10% 10%, rgba(124,58,237,0.08), transparent), var(--raven-bg); 
-      color: #e6eef8; 
+    /* Themes */
+    body.raven-theme {
+      background: radial-gradient(1400px 600px at 10% 15%, rgba(124,58,237,0.09), transparent), var(--raven-bg);
+      color: #e6eef8;
     }
-    body.golden-theme { 
-      background: radial-gradient(1200px 500px at 10% 10%, rgba(245,194,66,0.08), transparent), var(--gold-bg); 
-      color: #2c2118; 
+    body.golden-theme {
+      background: radial-gradient(1400px 600px at 10% 15%, rgba(245,194,66,0.09), transparent), var(--gold-bg);
+      color: #2c2118;
     }
 
-    .panel { 
-      background: rgba(255,255,255,0.03); 
-      border: 1px solid rgba(255,255,255,0.06); 
-      border-radius: 16px;
+    .panel {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
       backdrop-filter: blur(12px);
     }
-    body.golden-theme .panel { 
-      background: rgba(255,255,255,0.92); 
-      border: 1px solid rgba(0,0,0,0.08); 
-    }
-
-    .accent-btn { 
-      background: linear-gradient(90deg, var(--raven-accent), #5b21b6); 
-      box-shadow: 0 10px 30px rgba(124,58,237,0.25);
-    }
-    body.golden-theme .accent-btn { 
-      background: linear-gradient(90deg, var(--gold-accent), #c78512); 
-      color: #2c2118; 
-      box-shadow: 0 10px 30px rgba(214,158,46,0.25);
-    }
-
-    .card { 
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
-    }
-    .card:hover { 
-      transform: translateY(-8px); 
-      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4); 
-    }
-
-    .hero-raven {
-      border: 8px solid rgba(124,58,237,0.15);
-      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-    }
-    body.golden-theme .hero-raven {
-      border-color: rgba(214,158,46,0.25);
-      box-shadow: 0 25px 60px rgba(214,158,46,0.15);
+    body.golden-theme .panel {
+      background: rgba(255,255,255,0.95);
+      border: 1px solid rgba(0,0,0,0.1);
     }
 
     .golden-heading {
-      background: linear-gradient(90deg, #f5c242, #facc15, #fcd34d);
+      background: linear-gradient(90deg, #f5c242, #fcd34d, #fbbf24);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      text-shadow: 0 0 25px rgba(245, 194, 66, 0.4);
     }
 
-    .progress-bar {
-      height: 6px;
+    .card {
+      transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px -15px rgb(0 0 0 / 0.5);
+    }
+
+    .hero-raven {
+      border: 10px solid rgba(124,58,237,0.2);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+    }
+    body.golden-theme .hero-raven {
+      border-color: rgba(214,158,46,0.3);
+      box-shadow: 0 30px 70px rgba(214,158,46,0.2);
+    }
+
+    .progress {
+      height: 7px;
+      background: #1f2937;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    body.golden-theme .progress { background: #e5d9c0; }
+    .progress-fill {
+      height: 100%;
       background: linear-gradient(90deg, #7c3aed, #a855f7);
       border-radius: 9999px;
     }
-    body.golden-theme .progress-bar {
+    body.golden-theme .progress-fill {
       background: linear-gradient(90deg, #d69e2e, #fbbf24);
     }
   </style>
 </head>
 <body class="raven-theme min-h-screen" data-theme="raven">
 
-  <!-- NAV -->
-  <nav class="fixed inset-x-0 top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-5 panel flex items-center justify-between mx-4 mt-4 rounded-2xl">
+  <!-- Navbar -->
+  <nav class="fixed top-0 inset-x-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-5 panel mx-4 mt-4 rounded-3xl flex items-center justify-between">
       <a href="#" class="flex items-center gap-4">
-        <div class="text-4xl">🪶</div>
+        <span class="text-4xl">🪶</span>
         <div>
           <div class="heading text-2xl font-bold tracking-tighter">FALLEN RAVEN</div>
           <div class="text-sm text-zinc-400" id="nav-sub">Full-Stack Developer</div>
         </div>
       </a>
 
-      <div class="flex items-center gap-4">
-        <button id="lang-btn" class="px-5 py-2.5 rounded-2xl hover:bg-white/10 transition">EN / عربي</button>
-        <button id="theme-btn" class="px-5 py-2.5 rounded-2xl hover:bg-white/10 transition">🌟 Golden</button>
-        <a href="https://github.com/Fallen-raven" target="_blank" class="text-2xl hover:text-purple-400 transition"><i class="fa-brands fa-github"></i></a>
-        <a href="https://wa.me/967735524426" target="_blank" class="text-2xl hover:text-green-400 transition"><i class="fa-brands fa-whatsapp"></i></a>
+      <div class="flex items-center gap-5">
+        <button id="lang-btn" class="px-6 py-3 rounded-2xl hover:bg-white/10 transition font-medium">EN / عربي</button>
+        <button id="theme-btn" class="px-6 py-3 rounded-2xl hover:bg-white/10 transition font-medium">🌟 Golden</button>
+        <a href="https://github.com/Fallen-raven" target="_blank" class="text-2xl hover:text-purple-400"><i class="fa-brands fa-github"></i></a>
+        <a href="https://wa.me/967735524426" target="_blank" class="text-2xl hover:text-green-400"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <header class="pt-32 pb-16">
+  <!-- Hero -->
+  <header class="pt-32 pb-20">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div>
-          <p class="text-purple-400 font-medium mb-2" id="hero-hi">Hi there — I'm</p>
-          <h1 id="hero-title" class="heading text-6xl lg:text-7xl font-bold leading-none mb-6">FALLEN RAVEN</h1>
-          <p id="hero-sub" class="text-xl text-zinc-300 max-w-lg">Full Stack Developer crafting fast, scalable, and beautiful web experiences.</p>
+          <p class="text-purple-400 font-medium" id="hero-hi">Hi there — I'm</p>
+          <h1 id="hero-title" class="heading text-6xl lg:text-7xl font-bold leading-none mt-3 mb-6 golden-heading">FALLEN RAVEN</h1>
+          <p id="hero-sub" class="text-xl leading-relaxed text-zinc-300 max-w-lg">Full Stack Developer from Yemen. I build modern, scalable, and delightful web applications.</p>
 
           <div class="flex flex-wrap gap-4 mt-10">
-            <a href="#projects" class="accent-btn text-white px-8 py-4 rounded-2xl font-semibold text-lg inline-flex items-center gap-3 hover:scale-105 transition">View Case Studies</a>
+            <a href="#projects" class="accent-btn text-white px-8 py-4 rounded-2xl font-semibold text-lg inline-flex items-center gap-3 hover:scale-105 transition">View Projects</a>
             <a href="#contact" class="border border-white/30 px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white/5 transition">Hire Me</a>
           </div>
 
-          <div class="grid grid-cols-3 gap-6 mt-16">
+          <div class="grid grid-cols-3 gap-8 mt-16">
             <div class="text-center">
               <div class="text-4xl font-bold">5+</div>
               <div class="text-sm text-zinc-400 mt-1" id="exp-label">Years Experience</div>
@@ -144,8 +137,8 @@
           </div>
         </div>
 
-        <div class="flex justify-center lg:justify-end">
-          <figure class="hero-raven w-80 h-80 rounded-3xl overflow-hidden bg-gradient-to-br from-zinc-900 to-black p-4">
+        <div class="flex justify-center">
+          <figure class="hero-raven w-80 h-80 rounded-3xl overflow-hidden bg-black p-6">
             <svg viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="ravenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -163,40 +156,67 @@
     </div>
   </header>
 
-  <!-- Rest of your sections (Skills, Projects, etc.) remain mostly the same but with improved styling -->
-  <!-- I'm keeping the full code clean — continuing with polished version of your sections -->
+  <main class="max-w-7xl mx-auto px-6">
 
-  <main class="max-w-7xl mx-auto px-6 pb-20">
-
-    <!-- SKILLS -->
+    <!-- Skills -->
     <section id="skills" class="py-20">
-      <h2 id="skills-title" class="heading text-5xl font-bold mb-4">Skills & Technologies</h2>
+      <h2 id="skills-title" class="heading text-5xl font-bold mb-12">Skills & Technologies</h2>
       <div class="grid md:grid-cols-2 gap-8">
-        <!-- Your existing skills cards with better styling -->
         <div class="panel card p-8">
-          <h4 class="font-semibold mb-6 text-lg">Core Stack</h4>
+          <h4 class="font-semibold mb-6">Core Stack</h4>
           <div class="space-y-8">
-            <div>
-              <div class="flex justify-between text-sm mb-2"><span>React / Next.js</span><span>92%</span></div>
-              <div class="h-1.5 bg-zinc-800 rounded-full"><div class="progress-bar w-[92%]"></div></div>
-            </div>
-            <!-- Repeat for others -->
+            <div><div class="flex justify-between mb-2 text-sm"><span>React / Next.js</span><span>92%</span></div><div class="progress"><div class="progress-fill w-[92%]"></div></div></div>
+            <div><div class="flex justify-between mb-2 text-sm"><span>TypeScript</span><span>88%</span></div><div class="progress"><div class="progress-fill w-[88%]"></div></div></div>
+            <div><div class="flex justify-between mb-2 text-sm"><span>Node.js / Express</span><span>85%</span></div><div class="progress"><div class="progress-fill w-[85%]"></div></div></div>
+            <div><div class="flex justify-between mb-2 text-sm"><span>Laravel / PHP</span><span>82%</span></div><div class="progress"><div class="progress-fill w-[82%]"></div></div></div>
+          </div>
+        </div>
+        <div class="panel card p-8">
+          <h4 class="font-semibold mb-6">Tools & Others</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip bg-white/10 px-4 py-2 rounded-xl">Tailwind CSS</span>
+            <span class="chip bg-white/10 px-4 py-2 rounded-xl">Docker</span>
+            <span class="chip bg-white/10 px-4 py-2 rounded-xl">PostgreSQL</span>
+            <span class="chip bg-white/10 px-4 py-2 rounded-xl">MongoDB</span>
+            <span class="chip bg-white/10 px-4 py-2 rounded-xl">Stripe</span>
+            <span class="chip bg-white/10 px-4 py-2 rounded-xl">GitHub Actions</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS, ARCHITECTURE, CODE, CONTACT sections can stay similar but benefit from the new .panel and .card styles -->
+    <!-- Projects -->
+    <section id="projects" class="py-20">
+      <h2 id="projects-title" class="heading text-5xl font-bold mb-12">Featured Projects</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="panel card p-8">
+          <h3 class="text-2xl font-bold mb-3">E-Commerce Platform</h3>
+          <p class="text-zinc-400 mb-4">Multi-tenant online store with Stripe payments, admin dashboard, and real-time order tracking.</p>
+          <div class="flex gap-3">
+            <a href="#" class="text-sm bg-white text-black px-5 py-2.5 rounded-xl">Live Demo</a>
+            <a href="#" class="text-sm border border-white/30 px-5 py-2.5 rounded-xl">GitHub</a>
+          </div>
+        </div>
+        <div class="panel card p-8">
+          <h3 class="text-2xl font-bold mb-3">Company Management System</h3>
+          <p class="text-zinc-400 mb-4">Real-time dashboard with RBAC, invoicing, analytics, and WebSocket notifications.</p>
+          <div class="flex gap-3">
+            <a href="#" class="text-sm bg-white text-black px-5 py-2.5 rounded-xl">Live Demo</a>
+            <a href="#" class="text-sm border border-white/30 px-5 py-2.5 rounded-xl">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- CONTACT -->
+    <!-- Contact -->
     <section id="contact" class="py-20">
-      <div class="panel card p-10 max-w-3xl mx-auto text-center">
-        <h3 id="contact-title" class="heading text-4xl font-bold mb-6">Let's build something great together</h3>
-        <p id="contact-desc" class="text-lg mb-8 text-zinc-400">Open for freelance, full-time, or exciting collaborations.</p>
+      <div class="panel card max-w-2xl mx-auto p-12 text-center">
+        <h2 id="contact-title" class="heading text-5xl font-bold mb-6">Ready to start your project?</h2>
+        <p id="contact-desc" class="text-lg mb-10 text-zinc-400">Let's turn your idea into reality. Fast responses guaranteed.</p>
         <a href="https://wa.me/967735524426" target="_blank"
-           class="inline-flex items-center gap-4 bg-green-600 hover:bg-green-700 text-white px-10 py-5 rounded-2xl text-xl font-semibold transition">
-          <i class="fa-brands fa-whatsapp text-3xl"></i>
-          Message on WhatsApp
+           class="inline-flex items-center gap-4 bg-green-600 hover:bg-green-700 px-12 py-6 rounded-3xl text-xl font-semibold transition">
+          <i class="fa-brands fa-whatsapp text-4xl"></i>
+          Message me on WhatsApp
         </a>
       </div>
     </section>
@@ -207,35 +227,86 @@
   </footer>
 
   <script>
-    // === Your existing script with small improvements ===
     let currentLang = 'en';
     let currentTheme = 'raven';
 
-    function applyTheme(theme) {
+    const translations = {
+      en: {
+        navSub: "Full-Stack Developer",
+        heroHi: "Hi there — I'm",
+        heroSub: "Full Stack Developer from Yemen. I build modern, scalable, and delightful web applications.",
+        expLabel: "Years Experience",
+        projLabel: "Projects Delivered",
+        stackLabel: "Full Ownership",
+        skillsTitle: "Skills & Technologies",
+        projectsTitle: "Featured Projects",
+        contactTitle: "Ready to start your project?",
+        contactDesc: "Let's turn your idea into reality. Fast responses guaranteed."
+      },
+      ar: {
+        navSub: "مطور Full-Stack",
+        heroHi: "مرحباً — أنا",
+        heroSub: "مطور Full Stack من اليمن. أبني تطبيقات ويب حديثة وقابلة للتوسع.",
+        expLabel: "سنوات الخبرة",
+        projLabel: "المشاريع المنفذة",
+        stackLabel: "ملكية كاملة",
+        skillsTitle: "المهارات والتقنيات",
+        projectsTitle: "مشاريع مختارة",
+        contactTitle: "هل أنت جاهز لبدء مشروعك؟",
+        contactDesc: "دعنا نحول فكرتك إلى واقع. ردود سريعة مضمونة."
+      }
+    };
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+      const t = translations[lang];
+
+      document.getElementById('nav-sub').textContent = t.navSub;
+      document.getElementById('hero-hi').textContent = t.heroHi;
+      document.getElementById('hero-sub').textContent = t.heroSub;
+      document.getElementById('exp-label').textContent = t.expLabel;
+      document.getElementById('proj-label').textContent = t.projLabel;
+      document.getElementById('stack-label').textContent = t.stackLabel;
+      document.getElementById('skills-title').textContent = t.skillsTitle;
+      document.getElementById('projects-title').textContent = t.projectsTitle;
+      document.getElementById('contact-title').textContent = t.contactTitle;
+      document.getElementById('contact-desc').textContent = t.contactDesc;
+
+      document.getElementById('lang-btn').textContent = lang === 'ar' ? 'عربي / EN' : 'EN / عربي';
+    }
+
+    function toggleTheme() {
+      currentTheme = currentTheme === 'raven' ? 'golden' : 'raven';
       const body = document.body;
-      if (theme === 'golden') {
+      if (currentTheme === 'golden') {
         body.classList.remove('raven-theme');
         body.classList.add('golden-theme');
-        document.getElementById('theme-btn').textContent = '🪶 Raven';
+        document.getElementById('theme-btn').innerHTML = '🪶 Raven';
       } else {
         body.classList.remove('golden-theme');
         body.classList.add('raven-theme');
-        document.getElementById('theme-btn').textContent = '🌟 Golden';
+        document.getElementById('theme-btn').innerHTML = '🌟 Golden';
       }
-      currentTheme = theme;
-      localStorage.setItem('theme', theme);
+      localStorage.setItem('theme', currentTheme);
     }
 
-    // Theme & Language toggles (your logic + persistence)
-    document.getElementById('theme-btn').addEventListener('click', () => {
-      currentTheme = currentTheme === 'raven' ? 'golden' : 'raven';
-      applyTheme(currentTheme);
+    // Event Listeners
+    document.getElementById('lang-btn').addEventListener('click', () => {
+      applyLanguage(currentLang === 'en' ? 'ar' : 'en');
     });
 
-    // Initialize
+    document.getElementById('theme-btn').addEventListener('click', toggleTheme);
+
+    // Init
     window.onload = () => {
       const savedTheme = localStorage.getItem('theme') || 'raven';
-      applyTheme(savedTheme);
+      if (savedTheme === 'golden') {
+        document.body.classList.add('golden-theme');
+        document.getElementById('theme-btn').innerHTML = '🪶 Raven';
+        currentTheme = 'golden';
+      }
+      applyLanguage('en');
     };
   </script>
 </body>
