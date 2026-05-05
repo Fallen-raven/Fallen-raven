@@ -1,313 +1,184 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Fallen Raven — Full Stack Developer</title>
-  <meta name="description" content="Fallen Raven — Full Stack Developer from Yemen. React, Next.js, Node.js, Laravel specialist." />
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --raven-bg: #07060a;
-      --gold-bg: #fbf4e8;
-      --gold-accent: #d69e2e;
-    }
-
-    body { font-family: 'Inter', system-ui, sans-serif; }
-    .heading { font-family: 'Playfair Display', serif; letter-spacing: -0.04em; }
-
-    /* Themes */
-    body.raven-theme {
-      background: radial-gradient(1400px 600px at 10% 15%, rgba(124,58,237,0.09), transparent), var(--raven-bg);
-      color: #e6eef8;
-    }
-    body.golden-theme {
-      background: radial-gradient(1400px 600px at 10% 15%, rgba(245,194,66,0.09), transparent), var(--gold-bg);
-      color: #2c2118;
-    }
-
-    .panel {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      backdrop-filter: blur(12px);
-    }
-    body.golden-theme .panel {
-      background: rgba(255,255,255,0.95);
-      border: 1px solid rgba(0,0,0,0.1);
-    }
-
-    .golden-heading {
-      background: linear-gradient(90deg, #f5c242, #fcd34d, #fbbf24);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-shadow: 0 0 25px rgba(245, 194, 66, 0.4);
-    }
-
-    .card {
-      transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-    }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 30px 60px -15px rgb(0 0 0 / 0.5);
-    }
-
-    .hero-raven {
-      border: 10px solid rgba(124,58,237,0.2);
-      box-shadow: 0 30px 70px rgba(0,0,0,0.6);
-    }
-    body.golden-theme .hero-raven {
-      border-color: rgba(214,158,46,0.3);
-      box-shadow: 0 30px 70px rgba(214,158,46,0.2);
-    }
-
-    .progress {
-      height: 7px;
-      background: #1f2937;
-      border-radius: 9999px;
-      overflow: hidden;
-    }
-    body.golden-theme .progress { background: #e5d9c0; }
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #7c3aed, #a855f7);
-      border-radius: 9999px;
-    }
-    body.golden-theme .progress-fill {
-      background: linear-gradient(90deg, #d69e2e, #fbbf24);
-    }
-  </style>
+  <meta name="description" content="Fallen Raven — Full Stack Developer. Case studies, code sample, architecture and portfolio.">
+  <link rel="preload" href="css/styles.css" as="style">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Minimal icon font for social icons (fallback) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="" crossorigin="anonymous">
 </head>
-<body class="raven-theme min-h-screen" data-theme="raven">
+<body>
+  <!-- Particle background canvas -->
+  <canvas id="bg-canvas" class="bg-canvas" aria-hidden="true"></canvas>
 
-  <!-- Navbar -->
-  <nav class="fixed top-0 inset-x-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-5 panel mx-4 mt-4 rounded-3xl flex items-center justify-between">
-      <a href="#" class="flex items-center gap-4">
-        <span class="text-4xl">🪶</span>
-        <div>
-          <div class="heading text-2xl font-bold tracking-tighter">FALLEN RAVEN</div>
-          <div class="text-sm text-zinc-400" id="nav-sub">Full-Stack Developer</div>
+  <header class="nav panel">
+    <div class="container nav-inner">
+      <div class="brand">
+        <img src="assets/raven.svg" alt="Raven logo" class="logo" />
+        <div class="brand-text">
+          <div class="title">FALLEN RAVEN</div>
+          <div class="subtitle" id="nav-sub">Full-Stack Developer</div>
         </div>
-      </a>
-
-      <div class="flex items-center gap-5">
-        <button id="lang-btn" class="px-6 py-3 rounded-2xl hover:bg-white/10 transition font-medium">EN / عربي</button>
-        <button id="theme-btn" class="px-6 py-3 rounded-2xl hover:bg-white/10 transition font-medium">🌟 Golden</button>
-        <a href="https://github.com/Fallen-raven" target="_blank" class="text-2xl hover:text-purple-400"><i class="fa-brands fa-github"></i></a>
-        <a href="https://wa.me/967735524426" target="_blank" class="text-2xl hover:text-green-400"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
-    </div>
-  </nav>
 
-  <!-- Hero -->
-  <header class="pt-32 pb-20">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <p class="text-purple-400 font-medium" id="hero-hi">Hi there — I'm</p>
-          <h1 id="hero-title" class="heading text-6xl lg:text-7xl font-bold leading-none mt-3 mb-6 golden-heading">FALLEN RAVEN</h1>
-          <p id="hero-sub" class="text-xl leading-relaxed text-zinc-300 max-w-lg">Full Stack Developer from Yemen. I build modern, scalable, and delightful web applications.</p>
-
-          <div class="flex flex-wrap gap-4 mt-10">
-            <a href="#projects" class="accent-btn text-white px-8 py-4 rounded-2xl font-semibold text-lg inline-flex items-center gap-3 hover:scale-105 transition">View Projects</a>
-            <a href="#contact" class="border border-white/30 px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white/5 transition">Hire Me</a>
-          </div>
-
-          <div class="grid grid-cols-3 gap-8 mt-16">
-            <div class="text-center">
-              <div class="text-4xl font-bold">5+</div>
-              <div class="text-sm text-zinc-400 mt-1" id="exp-label">Years Experience</div>
-            </div>
-            <div class="text-center">
-              <div class="text-4xl font-bold">30+</div>
-              <div class="text-sm text-zinc-400 mt-1" id="proj-label">Projects Delivered</div>
-            </div>
-            <div class="text-center">
-              <div class="text-4xl font-bold">E2E</div>
-              <div class="text-sm text-zinc-400 mt-1" id="stack-label">Full Ownership</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex justify-center">
-          <figure class="hero-raven w-80 h-80 rounded-3xl overflow-hidden bg-black p-6">
-            <svg viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="ravenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#1e1b2e"/>
-                  <stop offset="100%" stop-color="#2a2338"/>
-                </linearGradient>
-              </defs>
-              <path d="M420 120c0 0-24 38-56 46-32 8-74 10-100 34-26 24-50 60-74 72s-64 18-88 10c-24-8-44-24-56-34-12-10-40-36-36-64 4-28 18-40 32-48 14-8 36-8 56-6 20 2 48 6 76 4 28-2 56-12 86-20 30-8 88-26 142-12 54 14 74 36 74 36z" fill="url(#ravenGrad)"/>
-              <path d="M180 300c20 24 52 46 86 58 34 12 72 18 104 8 32-10 58-36 82-50 24-14 68-36 74-58 6-22-10-30-30-22s-48 30-74 34c-26 4-54-4-80-12s-62-18-94-8c-32 10-58 36-86 58z" fill="#0b0b0b"/>
-              <circle cx="510" cy="150" r="8" fill="#e6e6e6"/>
-            </svg>
-          </figure>
-        </div>
+      <div class="controls">
+        <button id="lang-btn" class="btn small" aria-pressed="false">EN / عربي</button>
+        <button id="theme-btn" class="btn small" aria-pressed="false">🌟 Golden</button>
+        <a class="icon-link" href="https://github.com/Fallen-raven" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+        <a class="cta btn hire" href="mailto:2015abosam@gmail.com?subject=Hiring%20Fallen%20Raven">Contact</a>
       </div>
     </div>
   </header>
 
-  <main class="max-w-7xl mx-auto px-6">
+  <main id="main" class="container main">
+    <section class="hero grid">
+      <div class="hero-left">
+        <h2 id="hero-hi" class="muted">Hi — I'm</h2>
+        <h1 id="hero-title" class="heading">FALLEN RAVEN</h1>
+        <p id="hero-sub" class="lead">Full-stack developer — I build fast, resilient and delightful web applications.</p>
 
-    <!-- Skills -->
-    <section id="skills" class="py-20">
-      <h2 id="skills-title" class="heading text-5xl font-bold mb-12">Skills & Technologies</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="panel card p-8">
-          <h4 class="font-semibold mb-6">Core Stack</h4>
-          <div class="space-y-8">
-            <div><div class="flex justify-between mb-2 text-sm"><span>React / Next.js</span><span>92%</span></div><div class="progress"><div class="progress-fill w-[92%]"></div></div></div>
-            <div><div class="flex justify-between mb-2 text-sm"><span>TypeScript</span><span>88%</span></div><div class="progress"><div class="progress-fill w-[88%]"></div></div></div>
-            <div><div class="flex justify-between mb-2 text-sm"><span>Node.js / Express</span><span>85%</span></div><div class="progress"><div class="progress-fill w-[85%]"></div></div></div>
-            <div><div class="flex justify-between mb-2 text-sm"><span>Laravel / PHP</span><span>82%</span></div><div class="progress"><div class="progress-fill w-[82%]"></div></div></div>
-          </div>
+        <div class="hero-actions">
+          <a href="#projects" class="btn primary" id="btn-projects">See case studies</a>
+          <a href="#contact" class="btn ghost" id="btn-hire">Hire me</a>
+          <a href="/resume.pdf" download class="btn outline">Download resume</a>
         </div>
-        <div class="panel card p-8">
-          <h4 class="font-semibold mb-6">Tools & Others</h4>
-          <div class="flex flex-wrap gap-2">
-            <span class="chip bg-white/10 px-4 py-2 rounded-xl">Tailwind CSS</span>
-            <span class="chip bg-white/10 px-4 py-2 rounded-xl">Docker</span>
-            <span class="chip bg-white/10 px-4 py-2 rounded-xl">PostgreSQL</span>
-            <span class="chip bg-white/10 px-4 py-2 rounded-xl">MongoDB</span>
-            <span class="chip bg-white/10 px-4 py-2 rounded-xl">Stripe</span>
-            <span class="chip bg-white/10 px-4 py-2 rounded-xl">GitHub Actions</span>
-          </div>
+
+        <div class="metrics">
+          <div class="metric"><div class="num">5+</div><div class="label" id="exp-label">Years</div></div>
+          <div class="metric"><div class="num">30+</div><div class="label" id="proj-label">Projects</div></div>
+          <div class="metric"><div class="num">E2E</div><div class="label" id="stack-label">Frontend → Backend</div></div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <!-- Raven portrait: svg ensures crispness and theme-coloring -->
+        <div class="portrait" id="portrait" aria-hidden="false">
+          <img src="assets/raven.svg" alt="Raven profile" />
         </div>
       </div>
     </section>
 
+    <!-- Skills -->
+    <section id="skills" class="panel section">
+      <h3 class="section-title" id="skills-title">Skills & Technologies</h3>
+      <p class="muted" id="skills-sub">From pixel-perfect UIs to robust backend systems and infra.</p>
+
+      <div class="skills-grid" id="skills-grid"></div>
+    </section>
+
     <!-- Projects -->
-    <section id="projects" class="py-20">
-      <h2 id="projects-title" class="heading text-5xl font-bold mb-12">Featured Projects</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="panel card p-8">
-          <h3 class="text-2xl font-bold mb-3">E-Commerce Platform</h3>
-          <p class="text-zinc-400 mb-4">Multi-tenant online store with Stripe payments, admin dashboard, and real-time order tracking.</p>
-          <div class="flex gap-3">
-            <a href="#" class="text-sm bg-white text-black px-5 py-2.5 rounded-xl">Live Demo</a>
-            <a href="#" class="text-sm border border-white/30 px-5 py-2.5 rounded-xl">GitHub</a>
+    <section id="projects" class="panel section">
+      <div class="section-head">
+        <h3 id="projects-title">Featured Case Studies</h3>
+        <a id="view-github" href="https://github.com/Fallen-raven" class="muted small">View all on GitHub →</a>
+      </div>
+
+      <div id="projects-grid" class="projects-grid"></div>
+    </section>
+
+    <!-- Architecture -->
+    <section id="architecture" class="panel section">
+      <h3 id="arch-title">Architecture example</h3>
+      <p class="muted" id="arch-desc">An example production flow I implement: CDN → Frontend → API → DB → Workers → Observability.</p>
+      <div class="arch-card" aria-hidden="false">
+        <!-- simplified SVG diagram -->
+        <svg viewBox="0 0 1000 220" class="arch-svg" role="img" aria-label="Architecture diagram">
+          <rect x="20" y="40" width="160" height="60" rx="10" class="arch-node"></rect>
+          <text x="100" y="77" class="arch-text">CDN / Edge</text>
+
+          <rect x="220" y="40" width="240" height="60" rx="10" class="arch-node"></rect>
+          <text x="340" y="77" class="arch-text">Frontend (Next.js)</text>
+
+          <rect x="490" y="40" width="220" height="60" rx="10" class="arch-node"></rect>
+          <text x="600" y="77" class="arch-text">API (Node / Laravel)</text>
+
+          <rect x="740" y="20" width="220" height="120" rx="10" class="arch-db"></rect>
+          <text x="850" y="70" class="arch-text">Datastore</text>
+
+          <line x1="180" y1="70" x2="220" y2="70" class="arch-line" marker-end="url(#a)"></line>
+          <line x1="460" y1="70" x2="490" y2="70" class="arch-line" marker-end="url(#a)"></line>
+          <line x1="710" y1="70" x2="740" y2="70" class="arch-line" marker-end="url(#a)"></line>
+
+          <defs>
+            <marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 z" class="arch-arrow"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Code sample -->
+    <section id="code" class="panel section">
+      <h3 id="code-title">Code sample & playground</h3>
+      <div class="code-grid">
+        <div class="code-card">
+          <div class="code-header">
+            <div class="muted">Node / Express — Order API</div>
+            <button id="copy-code" class="btn small">Copy</button>
           </div>
+          <pre class="code-block" id="sample-code">
+// GET /api/orders/:id — returns order details and cached enrichment
+app.get('/api/orders/:id', async (req, res, next) => {
+  try {
+    const order = await Orders.findById(req.params.id);
+    const customer = await cache.getOrSet(`user:${order.userId}`, () => Users.findById(order.userId));
+    res.json({ order, customer });
+  } catch (err) { next(err); }
+});
+          </pre>
         </div>
-        <div class="panel card p-8">
-          <h3 class="text-2xl font-bold mb-3">Company Management System</h3>
-          <p class="text-zinc-400 mb-4">Real-time dashboard with RBAC, invoicing, analytics, and WebSocket notifications.</p>
-          <div class="flex gap-3">
-            <a href="#" class="text-sm bg-white text-black px-5 py-2.5 rounded-xl">Live Demo</a>
-            <a href="#" class="text-sm border border-white/30 px-5 py-2.5 rounded-xl">GitHub</a>
+
+        <div class="playground">
+          <div class="muted">Live GitHub preview for <strong>Fallen-raven</strong></div>
+          <div id="live-result" class="live-result">Press Refresh to load public repos</div>
+          <div class="play-actions">
+            <button id="refresh-repos" class="btn">Refresh</button>
+            <button id="clear-cache" class="btn ghost">Clear cache</button>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="py-20">
-      <div class="panel card max-w-2xl mx-auto p-12 text-center">
-        <h2 id="contact-title" class="heading text-5xl font-bold mb-6">Ready to start your project?</h2>
-        <p id="contact-desc" class="text-lg mb-10 text-zinc-400">Let's turn your idea into reality. Fast responses guaranteed.</p>
-        <a href="https://wa.me/967735524426" target="_blank"
-           class="inline-flex items-center gap-4 bg-green-600 hover:bg-green-700 px-12 py-6 rounded-3xl text-xl font-semibold transition">
-          <i class="fa-brands fa-whatsapp text-4xl"></i>
-          Message me on WhatsApp
-        </a>
+    <section id="contact" class="panel section">
+      <h3 id="contact-title">Let's build something</h3>
+      <p class="muted" id="contact-desc">Fast responses. Remote work welcome. Include a short note and link to a repo or demo.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <a class="btn primary" href="https://wa.me/967735524426" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+          <a class="btn outline" href="mailto:2015abosam@gmail.com"><i class="far fa-envelope"></i> 2015abosam@gmail.com</a>
+        </div>
+
+        <div class="contact-form-card">
+          <form id="contact-form" action="https://formspree.io/f/mayvlkzw" method="POST">
+            <input name="name" placeholder="Your name" required>
+            <input name="email" placeholder="Your email" type="email" required>
+            <textarea name="message" placeholder="Short message & link" rows="4" required></textarea>
+            <div class="form-actions">
+              <button type="submit" class="btn primary">Send message</button>
+              <div class="muted small">Or email: <a href="mailto:2015abosam@gmail.com">2015abosam@gmail.com</a></div>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="py-12 text-center text-zinc-500 border-t border-white/10">
-    <p>© 2026 Fallen Raven • Built with passion in Yemen</p>
+  <footer class="panel footer">
+    <div class="container footer-inner">
+      <div class="foot-left">© <span id="year"></span> Fallen Raven</div>
+      <div class="foot-right">
+        <a class="icon-link" href="https://github.com/Fallen-raven" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+        <a class="icon-link" href="https://wa.me/967735524426" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
   </footer>
 
-  <script>
-    let currentLang = 'en';
-    let currentTheme = 'raven';
-
-    const translations = {
-      en: {
-        navSub: "Full-Stack Developer",
-        heroHi: "Hi there — I'm",
-        heroSub: "Full Stack Developer from Yemen. I build modern, scalable, and delightful web applications.",
-        expLabel: "Years Experience",
-        projLabel: "Projects Delivered",
-        stackLabel: "Full Ownership",
-        skillsTitle: "Skills & Technologies",
-        projectsTitle: "Featured Projects",
-        contactTitle: "Ready to start your project?",
-        contactDesc: "Let's turn your idea into reality. Fast responses guaranteed."
-      },
-      ar: {
-        navSub: "مطور Full-Stack",
-        heroHi: "مرحباً — أنا",
-        heroSub: "مطور Full Stack من اليمن. أبني تطبيقات ويب حديثة وقابلة للتوسع.",
-        expLabel: "سنوات الخبرة",
-        projLabel: "المشاريع المنفذة",
-        stackLabel: "ملكية كاملة",
-        skillsTitle: "المهارات والتقنيات",
-        projectsTitle: "مشاريع مختارة",
-        contactTitle: "هل أنت جاهز لبدء مشروعك؟",
-        contactDesc: "دعنا نحول فكرتك إلى واقع. ردود سريعة مضمونة."
-      }
-    };
-
-    function applyLanguage(lang) {
-      currentLang = lang;
-      document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-      const t = translations[lang];
-
-      document.getElementById('nav-sub').textContent = t.navSub;
-      document.getElementById('hero-hi').textContent = t.heroHi;
-      document.getElementById('hero-sub').textContent = t.heroSub;
-      document.getElementById('exp-label').textContent = t.expLabel;
-      document.getElementById('proj-label').textContent = t.projLabel;
-      document.getElementById('stack-label').textContent = t.stackLabel;
-      document.getElementById('skills-title').textContent = t.skillsTitle;
-      document.getElementById('projects-title').textContent = t.projectsTitle;
-      document.getElementById('contact-title').textContent = t.contactTitle;
-      document.getElementById('contact-desc').textContent = t.contactDesc;
-
-      document.getElementById('lang-btn').textContent = lang === 'ar' ? 'عربي / EN' : 'EN / عربي';
-    }
-
-    function toggleTheme() {
-      currentTheme = currentTheme === 'raven' ? 'golden' : 'raven';
-      const body = document.body;
-      if (currentTheme === 'golden') {
-        body.classList.remove('raven-theme');
-        body.classList.add('golden-theme');
-        document.getElementById('theme-btn').innerHTML = '🪶 Raven';
-      } else {
-        body.classList.remove('golden-theme');
-        body.classList.add('raven-theme');
-        document.getElementById('theme-btn').innerHTML = '🌟 Golden';
-      }
-      localStorage.setItem('theme', currentTheme);
-    }
-
-    // Event Listeners
-    document.getElementById('lang-btn').addEventListener('click', () => {
-      applyLanguage(currentLang === 'en' ? 'ar' : 'en');
-    });
-
-    document.getElementById('theme-btn').addEventListener('click', toggleTheme);
-
-    // Init
-    window.onload = () => {
-      const savedTheme = localStorage.getItem('theme') || 'raven';
-      if (savedTheme === 'golden') {
-        document.body.classList.add('golden-theme');
-        document.getElementById('theme-btn').innerHTML = '🪶 Raven';
-        currentTheme = 'golden';
-      }
-      applyLanguage('en');
-    };
-  </script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
