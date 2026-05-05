@@ -1,0 +1,34 @@
+[
+  {
+    "title": "E-Commerce Platform",
+    "desc": "Multi-tenant online store with SSR frontend, admin API, Stripe payments and background jobs for order sync.",
+    "tech": ["Next.js","Laravel","Stripe","Postgres"],
+    "repo": "",
+    "demo": "",
+    "icon": "🛍️"
+  },
+  {
+    "title": "Company Management System",
+    "desc": "Realtime dashboard with RBAC, invoices and analytics. React frontend, Node APIs, Postgres, WebSockets.",
+    "tech": ["React","Node.js","Postgres","Socket.io"],
+    "repo": "",
+    "demo": "",
+    "icon": "📊"
+  },
+  {
+    "title": "Multi-Vendor Marketplace",
+    "desc": "Sellers, commissions, product catalog and order routing. Focus on onboarding and payout flows.",
+    "tech": ["Next.js","Express","PostgreSQL"],
+    "repo": "",
+    "demo": "",
+    "icon": "🏪"
+  },
+  {
+    "title": "Booking & Reservation System",
+    "desc": "Hotel & apartment booking with calendar, reviews, and payments.",
+    "tech": ["React","Laravel","MySQL"],
+    "repo": "",
+    "demo": "",
+    "icon": "🏨"
+  }
+]
