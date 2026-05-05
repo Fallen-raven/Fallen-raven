@@ -1,0 +1,132 @@
+:root{
+  --raven-bg:#050409;
+  --raven-panel:#0f1116;
+  --raven-accent:#7c3aed;
+  --raven-muted:#9aa3b2;
+  --gold-bg:#fbf4e8;
+  --gold-panel:#f5eddc;
+  --gold-accent:#d69e2e;
+  --gold-muted:#4b3824;
+
+  --container:1100px;
+  --glass-border:rgba(255,255,255,0.04);
+  --radius:14px;
+  --transition:.28s cubic-bezier(.2,.9,.3,1);
+}
+
+/* reset-ish */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+  color:#e6eef8;
+  background:var(--raven-bg);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* background canvas positioning */
+.bg-canvas{position:fixed;inset:0;z-index:-2;width:100%;height:100%;display:block}
+
+/* container */
+.container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+/* panels and nav */
+.panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid var(--glass-border);border-radius:var(--radius);padding:14px}
+.nav{position:fixed;top:18px;left:18px;right:18px;z-index:60}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+
+/* brand */
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:56px;height:56px}
+.brand-text .title{font-weight:700;letter-spacing:-0.02em}
+.brand-text .subtitle{font-size:12px;color:var(--raven-muted)}
+
+/* controls */
+.controls{display:flex;gap:10px;align-items:center}
+.btn{border:0;padding:8px 12px;border-radius:10px;background:transparent;color:inherit;cursor:pointer;transition:var(--transition)}
+.btn.small{padding:6px 10px;font-size:13px}
+.btn.primary{background:linear-gradient(90deg,var(--raven-accent),#5b21b6);color:white;box-shadow:0 10px 30px rgba(124,58,237,0.14)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+.btn.outline{background:transparent;border:1px solid rgba(255,255,255,0.08)}
+.btn.hire{background:linear-gradient(90deg,#20c997,#198754);color:white;padding:8px 14px}
+
+/* main layout */
+.main{padding-top:120px;padding-bottom:60px}
+.heading{font-family:'Playfair Display',serif}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
+.hero-left{}
+.heading{font-size:44px;margin:0 0 6px}
+.lead{color:var(--raven-muted);max-width:58ch}
+.hero-actions{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+.metrics{display:flex;gap:12px;margin-top:20px}
+.metric{background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;text-align:center;width:110px}
+.metric .num{font-weight:700;font-size:20px}
+.muted{color:var(--raven-muted)}
+
+/* portrait */
+.portrait{width:320px;height:320px;display:flex;align-items:center;justify-content:center;border-radius:16px;border:8px solid rgba(124,58,237,0.12);overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.12))}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* skills grid */
+.skills-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.skill{background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-size:13px;color:var(--raven-muted)}
+
+/* projects */
+.section{margin-top:28px}
+.section-title{font-size:22px}
+.section-head{display:flex;justify-content:space-between;align-items:center}
+.projects-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:12px}
+.project-card{display:flex;gap:12px;align-items:stretch;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));transition:var(--transition)}
+.project-thumb{width:120px;height:80px;background:linear-gradient(135deg,#4f46e5,#7c3aed);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:28px;color:white}
+.project-body{flex:1}
+.project-tags{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+
+/* arch svg style */
+.arch-svg{width:100%;height:160px}
+.arch-node{fill:#0f1724;stroke:#20304f;stroke-width:1}
+.arch-db{fill:#071025;stroke:#263a3a;stroke-width:1}
+.arch-text{fill:#cbd5e1;font-size:14px;text-anchor:middle;dominant-baseline:middle}
+.arch-line{stroke:#9ca3af;stroke-width:1.2}
+.arch-arrow{fill:#9ca3af}
+
+/* code and playground */
+.code-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.code-card{padding:10px;border-radius:8px;background:rgba(255,255,255,0.02)}
+.code-block{background:#0b1220;padding:12px;border-radius:8px;color:#dbeafe;overflow:auto}
+.live-result{background:rgba(255,255,255,0.02);padding:12px;border-radius:8px;min-height:120px;margin-top:8px}
+.play-actions{display:flex;gap:8px;margin-top:8px}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.contact-card{display:flex;flex-direction:column;gap:10px}
+.contact-form-card input, .contact-form-card textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+
+/* footer */
+.footer{margin-top:40px;padding:18px}
+.footer-inner{display:flex;justify-content:space-between;align-items:center}
+
+/* hover and interaction */
+.project-card:hover, .panel:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.45)}
+.icon-link{color:inherit;margin-left:8px;text-decoration:none}
+
+/* responsive */
+@media(min-width:900px){
+  .hero{grid-template-columns:1fr 360px}
+  .projects-grid{grid-template-columns:1fr 1fr}
+  .code-grid{grid-template-columns:1fr 420px}
+  .contact-grid{grid-template-columns:1fr 420px}
+}
+
+/* GOLDEN THEME overrides */
+body.golden-theme{
+  background:var(--gold-bg);color:var(--gold-muted)
+}
+body.golden-theme .panel{background:linear-gradient(180deg,var(--gold-panel),#fff);border:1px solid rgba(0,0,0,0.06)}
+body.golden-theme .btn.primary{background:linear-gradient(90deg,var(--gold-accent),#c78512);color:var(--gold-muted);box-shadow:0 12px 36px rgba(200,140,36,0.08)}
+body.golden-theme .portrait{border:8px solid rgba(245,194,66,0.14);box-shadow:0 20px 40px rgba(245,194,66,0.08)}
+body.golden-theme .muted{color:var(--gold-muted)}
+body.golden-theme .brand-text .subtitle{color:var(--gold-muted)}
